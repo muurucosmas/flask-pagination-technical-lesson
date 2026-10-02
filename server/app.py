@@ -6,7 +6,9 @@ from sqlalchemy.exc import IntegrityError
 
 from config import app, db, api
 from models import Recipe, RecipeSchema
+import os
 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 class Recipes(Resource):
     def get(self):
         page = request.args.get('page',1,type=int)
