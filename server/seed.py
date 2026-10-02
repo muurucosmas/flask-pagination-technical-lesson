@@ -12,6 +12,7 @@ fake = Faker()
 with app.app_context():
 
     print("Deleting all recipes...")
+    db.create_all()
     Recipe.query.delete()
 
     fake = Faker()
